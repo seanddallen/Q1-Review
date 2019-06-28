@@ -1,0 +1,117 @@
+Key = {
+    Padawin: "ESSENTIAL KNOWLEDGE - Q1 Basics",
+    Apprentice: "BENEFICIAL KNOWLEDGE - Q1 Intermediate",
+    Jedi: "I BOW TO YOU - Q1 Advanced"
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+// Q1 - PADAWIN (MUST KNOW!!!)
+/////////////////////////////////////////////////////////////////////////
+
+/* Q: how do I connect my css file with in my html file? */
+/* A: <link rel=“stylesheet” href=“path” /> */
+
+
+/* Q: What is a selector and what is its syntax? */
+/* A: way to select html element to change style
+Selector { property: value }  — this is called a “rule”
+Property is what you want to change, value is how you want to change it */
+
+
+/* Q: How would I write a element/class/id/attribute selector? */
+/* A: 
+element{}, 
+.class{}, 
+#id{}, 
+element[attribute/value]{} 
+*/
+
+
+/* Q: What is the box model? */
+/* A: every element is a rectangle that takes up a certain amount of space and has margin, padding, and border */
+
+
+/* Q: What is the difference between margin, padding, and border? */
+/* A: margin (between elements), padding (between element content and border), border (outer edge of the element) */
+
+
+/* What are the different ways to make a site responsive? Which are native? */
+/* Native - Media Queries, Flexbox, Grid
+Not Native - Bootstrap */
+
+
+/* Q: What is a useful tool to align elements horizontally and create your layout? How do we declare something a flex element? */
+/* A: Flexbox, display: flex */
+
+
+/* Q: What are the two categories of flex properties? */
+/* A: flex container, flex child */
+
+
+/* Q: How many columns are there in the bootstrap grid system? What are the 5 built in breakpoint sizes? */
+/* A: 12, xs/sm/md/lg/xl */
+
+
+/* Q: How do we write the class name for an element to use a specific amount of columns at a specific breakpoint? */
+/* A: class=“Col-md-8, col-xs-4" */
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+// Q1 - APPRENTICE (GOOD TO KNOW!)
+/////////////////////////////////////////////////////////////////////////
+
+
+/* Q: How do you select multiple elements? all descendants? direct descendants? */
+/* A: 
+multiple selector: Tag1, tag2, tag3 {}, 
+descendant selector: tag1 tag2 {}, 
+direct descendant selector: tag1 > tag2 {} 
+*/
+
+
+/* Q: What is specificity? What is the order of specificity? */
+/* A: how specific the selector is an what will override what
+tag/element (1pt), class (10pt), id (100pt), inline (1000pt) */
+
+
+/* Q: What are the different ways to change a color? */
+/* A: 
+by name - color: red
+by hex - color: #111111
+by RGBA - color(255, 255, 255, 0.5) */
+
+
+/* Q: What unit is used to specify the length of something? How can you do it in relative units? */
+/* A: fixed - px
+relative - %, vh/vw
+relative - em (relative to parents length, 1em same as parent, compounds), rem(always relative to root html element (16 by default) */
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+// Q1 - JEDI (ON YOUR WAY TO BE A MASTER)
+/////////////////////////////////////////////////////////////////////////
+
+
+/* Q: How do select specific children in relation to the parent without knowing how to access that element? */
+/* A: 
+element:first-child{}
+element:last-child{}
+element:nth-child(3){} 
+*/
+
+
+/* Q: What is a psuedo-selector? Examples? */
+/* A: only targets an element when it is in a certain state
+element:hover {} */
+
+
+/* Q: What are the 5 main values for the position property? What do they do? */
+/* A: static, relative (relative to self), absolute (relative to parent), fixed (relative to viewport—not affected by scroll), sticky */
+
+/* Q: What is the z-index property used for? */
+/* A: Stack one element on top of the other */

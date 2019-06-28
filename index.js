@@ -155,6 +155,101 @@ for(let item of array)          //forOf: used to loop through an array
     //best to use this by default unless have specific reason to use ==
 
 
+//Q: What is the DOM?
+//A: Document Object Model. The “document” is an object supplied by the browser (it is inside the global “window” object) that creates a model of all the HTML elements as Javascript objects.
+//This object allows us to access and manipulate our HTML using Javascript
+//The javascript code we write does not alter the HTML it only alters the DOM
+
+
+//Q: What are the three main steps when using the DOM?
+//A: Step 1: Access the HTML element
+//   Step 2: Alter the HTML element
+//   Step 3: Append the HTML element
+
+
+//Q: What are the two main methods for accessing an element?
+//A: document.getElementBy…
+//Document.querySelector
+
+
+//Q: What are all the parts of an event listener?
+//A: Element.addEventListener(“click”, (e) => {…})
+//attach addEventListener to element
+//First parameter is type of event
+//second parameter is a callback function to execute code when event occurs (called the “event handler”)
+//first parameter of the callback function is always the event (e)
+
+
+//Q: What are two ways to create an element and append it to the DOM?
+//A: appendChild method
+    //let newDiv = Document.createElement(‘div’)
+    //element.appendChild(newDiv)
+//innerHTML method
+    //element.innerHTML = `<div>${content}</div>`
+
+
+//Q: What is asynchronous Code and why do we need it?
+//A: Code that does not run in the normal order of execution but waits to run at a further time or after receiving a response
+//Does not interrupt the normal flow of the program (is non-blocking), so is necessary to allow the program to continue to run
+
+
+//Q: What are the main HTTP methods/verbs?
+//A: Get/Post/Put/Patch/Delete
+
+
+//Q: What is the difference between a GET and POST request?
+//A: GET “gets” a resource/data from the server
+    //sends all its data to the server within the URL (don’t ever use with sensitive information!)
+    //Can add extra data with the request using query parameters
+//POST “posts” a resource/data to the server
+    //Post sends a body (object) with the data to be posted
+    //Setup header for the request to tell server what to expect
+
+
+//Q: What is a promise?
+//A: promise is an object that waits for the eventual completion/failure of the asynchronous code
+
+
+//Q: What are the three states of a promise?
+//A: Resolved, rejected, pending
+
+
+//Q: What is .then() and .catch()?
+//methods on all promise objects, take callback functions to handle the resolved/rejected cases
+//When a promise is resolved it will then run the .then() method (code you want to run after the original asynchronous code is complete)
+    //.then() will return another promise (can string several .then() methods)
+//When a promise is rejected it will then run the .catch() method (code you want to run if the original asynchronous code fails)
+
+
+//Q: How do you write a GET/POST fetch request? 
+
+    //A: GET
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {})
+
+    //POST
+    fetch(url, {
+        method: 'POST', 
+        headers: {}, 
+        body: {}
+    })
+        .then(response => response.json())
+        .then(data => {})
+
+
+//Q: How do you write a GET/POST axios request?
+    
+    //A: GET
+    Axios.get(url)
+        .then(response => {})
+
+    //POST
+    Axios.post(url, body)
+        .then(response => {})
+
+
+
 
 
 
@@ -215,9 +310,34 @@ for(let item of array)          //forOf: used to loop through an array
 //falsey - False, 0, “”, null, undefined, NaN (all other values are truthy)
 
 
+//Q: What is an API?
+//A: Application programming interface. An API is a server meant to be used/consumed by other applications by hitting their specified endpoints to get/post data. 
 
 
+//Q: What are some parts of a URL?
+//A: base, endpoint, query parameters
+//EX: www.base.com/endpoint?queryparameters=value
 
+
+//Q: What is an endpoint?
+//A: the part of the URL specified by the API to get/post a specific resource
+//the API determines which endpoints can be reached and what resources they will return
+
+
+//Q: What is a query parameter?
+//A: Additional data to send via the URL (placed at end of URL)
+//Syntax: ?key=value&key=value
+
+
+//Q: what is JSON?
+//A: most popular data format on the web
+//a string (plain text) formatted like a javascript object
+//must be converted into actual JS object to be used
+
+//Q: What are the methods we use for converting JSON?
+//A: JSON.parse() — parses JSON string into a JS object
+//JSON.stringify() — parses something into a JSON string
+//res.json() — takes the response and parses the JSON into a JS object
 
 
 
@@ -259,6 +379,10 @@ for(let item of array)          //forOf: used to loop through an array
 //A: Object.create({}, obj), object.assign({}, obj), spread operator
 
 
+//Q: what does Object.keys() do?
+//A: returns an array of a given object's own property names, in the same order as we get with a normal loop.
+
+
 //Q: What is the ternary operator?
 //A: another way to write a condition (more concise)
 //Condition ? True : false
@@ -275,6 +399,60 @@ for(let item of array)          //forOf: used to loop through an array
     //read: if person.name equals Sean is true, then person.role is instructor, else if it is false, then person.role is student
 
 
+//Q: What is event bubbling?
+//A: When an event is fired, it then bubbles up and is fired also by its parent, grandparent, and so on up the entire DOM tree. 
+//thus you can put your event listener anywhere that you want the event to be handled
+
+
+//Q: How can we prevent event bubbling?
+//A: e.stopPropagation()
+
+
+//Q: What is traversing the DOM? What methods can we use?
+//A: How to move from one part of the DOM to another and select elements based on their relation to each other in the DOM
+//element  +  parentNode(), .children(), .firstChild(), .lastChild(), .previousSibling(), .nextSibling()
+
+
+//Q: What is promise.all()
+//A: takes an array of promises, returns a single promise that resolves and runs all the promises at once when they are all ready (all the promises have been resolved)
+//if any are rejected, none will be run
+
+
+//Q: What is callback hell and how do we avoid it?
+//A: before promises (or async/await), callback functions were used to handle asynchronous code, but then there would often have to be MANY nested callbacks which made the code very ugly and less easy to read/maintain. This is referred to as “callback hell”.
+    function asyncFunc((cb1) => {
+        (cb2) => {
+            (cb3) => {
+                (cb4) => {
+                    (cb5) => {
+                        (cb6) => {
+                            (cb7) => {
+                                (cb8) => {
+                                   
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    })
+
+//We can avoid callback hell by using promises and stringing/chaining .then() methods to handle the asynchronous code (much more readable!)
+    Axios.get(url)
+        .then(() => {})
+        .then(() => {})
+        .then(() => {})
+        .then(() => {})
+        .then(() => {})
+
+
+//Q: What is async/await?
+//A: way to handle asynchronous code
+//Async is keyword to specify a function is asynchronous 
+//Await is keyword to pause execution of function until the async code is resolved, then will continue 
+
+
 //Q: What is a switch statement?
 //A: Another way to write a condition, used when you know the specific set of possible options
     //Syntax:     
@@ -288,6 +466,22 @@ for(let item of array)          //forOf: used to loop through an array
         default: 
             statement;
     }
+
+    //Expression
+        //name for type of value to be expected (can be any word)
+    //Case Values
+	    //Value tested to see if equal to the expression
+	    //Case values are tested with strict equality (===)
+	    //Can have as many case values as desired
+	//Statements
+	    //Statement is code executed if the expression matches the value
+	    //If not it breaks off and moves on the next case value
+	//Break
+	    //The break tells JavaScript to stop executing statements. 
+	    //If the break is omitted, the next statement will be executed (not good!)
+	//Default
+	    //Will be executed if no matching case statements are found. 
+	    //Think of it like the final else statement in an if/else chain.
 
     //Example: 
     switch(season){
