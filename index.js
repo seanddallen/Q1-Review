@@ -500,3 +500,39 @@ for(let item of array)          //forOf: used to loop through an array
         default:
             return "You did not type in a valid season name";
     }
+
+
+//Question: How does "this" work in Javascript?
+//Answer: “this” is a variable that refers to the object where the function is invoked (its execution context)
+// “this” is usually used inside a function/method and ALWAYS refers to an object
+// used to access specific objects on a context specific basis
+// General: Can usually determine the context of this by looking at what is to the left when function is called (does not matter where it is defined but where called!!!)
+// 4 WAYS “this” takes a value (based on how/where function is called)
+    // 1) Within a function call (outside a declared object)
+    // refers to the global object context
+    // 2) Within methods call (inside a declared object)
+    // refers to the parent object context
+    // 3) Within a constructor function
+    // refers to the new instance of the object/class
+    // 4) call(), apply(), bind() methods
+    // can be used to choose the context of “this”
+
+    // Arrow Functions
+    // Binds the context of “this” to the enclosing context where the arrow function is defined (its context never changes)
+    // an arrow function does not create its own execution context, but uses the execution context from the outer function (context for “this”)
+    // Arrow function “inherits” its context from the function it is defined inside
+
+
+
+    //Q: What is the ternary operator?
+//A: Conditional ? ifTrue : elseIfFalse
+const role = teacher.status === 'full-time' ? 'Lead Instructor' : 'Resident Instructor'
+
+
+
+//Q: how do you do Conditional rendering?
+        // State = { isLoggedIn: true } 
+        // { this.state.isLoggedIn ?                                                                                       <h3> Welcome valued customer! <h3>                                                                    : <div class=“warning”> You must login to view this page</div> }
+        //     <h3> Welcome valued customer! <h3> 
+        //     : <div className=“warning”> You must login to view this page </div> 
+        // }
