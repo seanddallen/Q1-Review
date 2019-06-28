@@ -522,17 +522,29 @@ for(let item of array)          //forOf: used to loop through an array
     // an arrow function does not create its own execution context, but uses the execution context from the outer function (context for “this”)
     // Arrow function “inherits” its context from the function it is defined inside
 
+    //"this" context #1 (function)
+    function thisFunction(){
+        console.log(this)
+    }
+
+    //"this" context #2 (method)
+    myObject = {
+      name: "sean",
+      age: 34,
+      getOlder: function(){ 
+        this.age++
+        console.log(this)
+      }
+    }
+
+    //"this" context #3 (constructor)
+    class Human {
+      constructor(name, age){
+          this.name = name
+          this.age = age
+      }
+    }
 
 
-    //Q: What is the ternary operator?
-//A: Conditional ? ifTrue : elseIfFalse
-const role = teacher.status === 'full-time' ? 'Lead Instructor' : 'Resident Instructor'
 
 
-
-//Q: how do you do Conditional rendering?
-        // State = { isLoggedIn: true } 
-        // { this.state.isLoggedIn ?                                                                                       <h3> Welcome valued customer! <h3>                                                                    : <div class=“warning”> You must login to view this page</div> }
-        //     <h3> Welcome valued customer! <h3> 
-        //     : <div className=“warning”> You must login to view this page </div> 
-        // }

@@ -54,30 +54,46 @@ letFunc()
 //Q: What is .map?
 //A: iterates through array and runs callback function on each item
 //Returns each item into a new array (does not mutate original)
-Array.map(item => { do this code…})
+    Array.map(item => { do this code…})
+
+    const newArr = numArray.map(num => {
+        return num * 2
+    })
+
 
 //Q: What is .filter?
 //A: iterates through array and runs callback function on each item
 //Returns each item that passes the condition into a new array (does not mutate original)
     Array.filter(item => { do this code…})
 
+    const filteredArr = strArray.filter(name => {
+        return name.startsWith('b')
+    })
+    console.log(filteredArr)
+
+
+//Chaining Methods
+    let filteredNames = strArray.map(name => name.toUpperCase()).filter(name => name.length > 5)
+    console.log(strArray)
+
+
+
 //Q: What is the Spread operator? (used for arrays/objects)
     //A: Used to make a shallow copy of an object/array without mutating original
     //Simply spreads out the VALUES of one object/array into another
+
     //Object:
-        let obj = {name: 'Sean', age: 34}
-        let newObj = { ...obj, role: 'teacher' }
+        const originalObject = {name: 'Sean', age: 34}
+        const copyObject = { ...originalObject}
+        const updatedObject = { ...originalObject, role: 'teacher'}
+
     //Array:
-        let nums = [1,2,3]
-        let moreNums = [...nums, 4,5,6] => [1,2,3,4,5,6]
+    const animals = ['cat', 'dog', 'rat']
+    const names = ['felix', 'fido', 'fred']
 
-
-
-
-
-
-
-
+    const copyAnimals = [...animals]
+    const updatedAnimals = [...animals, 'pig', 'monkey']
+    const concatArrays = [...animals, ...names]
 
 
 
@@ -90,6 +106,7 @@ Array.map(item => { do this code…})
 //Q: What is an arrow function?
 
 //A: shorter syntax for anonymous/callback functions
+    const myArrowFunction = () => {...}
 
 
 
@@ -103,8 +120,8 @@ Array.map(item => { do this code…})
 //Q: What is object destructuring?
 //A: easier way to references properties of an object
 //Get all the properties in any object with one variable declaration
-    const person = {name: 'Sean', age: 34, role: 'teacher'}
-    const {name, age, role} = person
+    const personObject = {name: 'Sean', age: 34, role: 'teacher'}
+    const {name, age, role} = personObject
 
 
 
@@ -112,24 +129,21 @@ Array.map(item => { do this code…})
 //A: A function that takes a callback function as an argument
 
 
+
 //Q: What is .forEach?
 //A: iterates through array and runs callback function on each item
 //Doesn't return anything (undefined), simply uses values or mutates original array
     Array.forEach((item) => { do this code…})
 
+    numArray.forEach((num, i) => {
+        numArray[i] = num * 2
+    })
+    console.log(numArray)
 
 
 
 
-
-
-
-
-
-
-
-
-
+    
 /////////////////////////////////////////////////////////////////////////
 // Q1 - JEDI (ON YOUR WAY TO BE A MASTER)
 /////////////////////////////////////////////////////////////////////////
@@ -152,15 +166,47 @@ Array.map(item => { do this code…})
         //If value supplied, the acc starts with that value and the current value will start at the first value in the array (index 0)
         //if no value supplied, value will default to first element in the array and the current value will be equal to the second (index 1)
 
-Array.reduce((acc, val) => { do this code…})
+    Array.reduce((acc, val) => { do this code…})
+
+    //Example #1
+    numArray.reduce((sum, num) => {
+      return sum + num
+    }, 0)
+
+    //Example #2
+    let newArr = [98, 47, 23, -6, 106, 73, 102, 44]
+
+    newArr.reduce((max, cur) => cur > max ? cur : max)
+
+    //Example #3
+    let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice', 'Bob', 'Bob'];
+
+    names.reduce((nameMap, name) => { 
+      nameMap[name] ? nameMap[name]++ : nameMap[name] = 1
+      return nameMap
+    }, {});
+
+    //Example #4
+    let letterArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd', 'a', 'c', 'c'];
+
+    letterArray.reduce((acc, letter) => {
+      acc.indexOf(letter) === -1 ? acc.push(letter) : acc
+      return acc
+    }, [])
+
 
 
 
 //Q: What is the rest operator? (used as a parameter)
 //A: LAST parameter of a function can be prefixed with (…) which will place all remaining arguments in an array
-    function sum(...args){ }  OR   function sum(name, age, ...args){ }
+    function sum(...args){ }  OR   function sum(name, age, ...argsCanBeNamedAnything){ }
     //can then use array methods
 
+    function multiplyEach(multiplier, ...numbers){
+      return numbers.map(num => num * multiplier)
+    }
+
+    multiplyEach(5,3,4,5,6,6,7,7,5,3,2)
 
 
 
@@ -220,5 +266,5 @@ Array.reduce((acc, val) => { do this code…})
                     studentMorale += 100;
                 }
             }
-            
+
             let sean = new Teacher('Sean', 34, 'Hey there Buckaroo') 
